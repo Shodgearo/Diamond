@@ -8,9 +8,34 @@ public class Main extends JFrame {
         new Main();
     }
 
+    private JPanel panel;
+    private Image img;
+
     public Main() {
-        
+        initPicture();
+        initPanel();
+        adding();
         initFrame();
+    }
+
+    private void initPanel() {
+        panel = new JPanel() {
+            @Override
+            protected void paintComponent(Graphics g) {
+                super.paintComponent(g);
+
+                g.drawImage(img, 0, 0, this);
+            }
+        };
+    }
+
+    private void initPicture() {
+        ImageIcon icon = new ImageIcon("Resource\\Back.png");
+        img = icon.getImage();
+    }
+
+    private void adding() {
+        add(panel);
     }
 
     private void initFrame() {
