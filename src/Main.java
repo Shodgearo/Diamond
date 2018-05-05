@@ -1,5 +1,7 @@
-/**
- * Created by Александр on 05.05.2018.
- */
+// Game (clone diamond)
+
 public class Main {
+    public static void main(String[] args) {
+
+    }
 }
