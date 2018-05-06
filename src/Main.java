@@ -8,8 +8,12 @@ public class Main extends JFrame {
         new Main();
     }
 
-    private JPanel panel, gameZone;
+    private PanelClass panel, gameZone;
     private Image img;
+    private final int a = 800;
+    private final int b = 540;
+    private final int aGZ = 600;
+    private final int bGZ = 540;
 
     public Main() {
         initPicture();
@@ -19,7 +23,8 @@ public class Main extends JFrame {
     }
 
     private void initPanel() {
-        panel = new JPanel() {
+        panel = new PanelClass(a, b){
+
             @Override
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
@@ -28,23 +33,7 @@ public class Main extends JFrame {
             }
         };
 
-        gameZone = new JPanel() {
-            @Override
-            protected void paintComponent(Graphics g) {
-                super.paintComponent(g);
-
-            }
-
-            @Override
-            public void setBackground(Color bg) {
-                super.setBackground(Color.BLACK);
-            }
-
-            @Override
-            public void setPreferredSize(Dimension preferredSize) {
-                super.setPreferredSize(new Dimension(300, 200));
-            }
-        };
+        gameZone = new PanelClass(aGZ, bGZ);
     }
 
     private void initPicture() {
@@ -53,14 +42,13 @@ public class Main extends JFrame {
     }
 
     private void adding() {
-        panel.setLayout(new BorderLayout());
-        panel.add(gameZone, BorderLayout.SOUTH);
-        add(panel, BorderLayout.CENTER);
+        add(gameZone, BorderLayout.WEST);
+        add(panel);
     }
 
     private void initFrame() {
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new Dimension(800, 540));
+        setPreferredSize(new Dimension(a, b));
         setResizable(false);
         pack();
         setLocationRelativeTo(null);
